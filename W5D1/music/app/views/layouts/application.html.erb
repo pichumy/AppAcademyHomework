@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Music</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <header>
+      <h1> Music App </h1>
+      <% if logged_in? %>
+        <form action="<%=session_url%>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <%= auth_token %>
+        <input type="submit" value="Log Out">
+      <% else %>
+        <!-- <a href="<%#=new_session_url%>">Log In!</a>  -->
+      <div class="login_form">
+        <form action="<%=new_session_url%>" method="post">
+          <%= login_inputs %>
+          <input type="submit" value="Log in">
+        </form>
+         <a href="<%=new_user_url%>"> <button> Sign Up!</button></a>
+      </div>
+      <% end %>
+    </header>
+    <% if flash[:errors] %>
+        <ul>
+        <% flash[:errors].each do |error| %>
+          <li> <%= error %> </li>
+        <% end%>
+        </ul>
+      <% end %>
+    <%= yield %>
+  </body>
+</html>

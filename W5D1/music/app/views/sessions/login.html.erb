@@ -1,0 +1,7 @@
+<% if params[:controller] != "sessions" %>
+<form action="<%=session_url%>" method="post">
+  <%= auth_token %>
+  <%= login_inputs %>
+  <input type="submit" value="Log in">
+</form>
+<%end %> 

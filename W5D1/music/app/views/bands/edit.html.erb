@@ -1,0 +1,8 @@
+<h3>This page is for editing band information</h3>
+
+<form action="<%= band_url(@band)%>" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+  <%= auth_token %>
+  <%= band_info %>
+  <input type="submit" value="edit">
+</form>

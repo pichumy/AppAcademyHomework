@@ -1,0 +1,13 @@
+<h3>Please fill in the information required!</h3>
+
+<form action="<%= albums_url %>" method="post">
+
+  <select>
+    <% @bands.each do |band| %>
+      <option value="<%=band.id%>"><%=band.name%></option>
+    <% end %>
+  </select>
+  <%= album_info %>
+  <%= auth_token %>
+  <input type="submit" value="Create Album">
+</form>

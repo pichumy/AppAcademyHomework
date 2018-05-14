@@ -1,0 +1,10 @@
+<h3> This displays all your bands! </h3>
+<table>
+<% @bands.each do |band| %>
+  <tr>
+    <td><button> band.name </button></td>
+  </tr>
+<% end %>
+</table>
+
+<!-- TODO: refactor into using show, DRY  -->
