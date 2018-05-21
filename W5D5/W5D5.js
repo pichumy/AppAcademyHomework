@@ -31,21 +31,43 @@ function teaAndBiscuits () {
   });
 }
 
-function Cat () {
-  this.name = 'Markov';
-  this.age = 3;
+teaAndBiscuits();
+// function Cat () {
+//   this.name = 'Markov';
+//   this.age = 3;
+// }
+//
+// function Dog () {
+//   this.name = 'Noodles';
+//   this.age = 4;
+// }
+//
+// Dog.prototype.chase = function (cat) {
+//   console.log(`My name is ${this.name} and I'm chasing ${cat.name}! Woof!`)
+// };
+//
+// Noodles.chase(Markov);
+//
+// Noodles.chase.call(Markov, Noodles);
+// Noodles.chase.apply(Markov, [Noodles]);
+
+
+
+function nice(){
+  let order = 'blah'
+  return function(param){
+    console.log(param);
+    console.log(order);
+  }
 }
 
-function Dog () {
-  this.name = 'Noodles';
-  this.age = 4;
+example = nice();
+
+example('why');
+=> 'blah'
+
+example = function(param){
+  console.log(param);
+  console.log(order);
+  // order = whatever order was from nice()
 }
-
-Dog.prototype.chase = function (cat) {
-  console.log(`My name is ${this.name} and I'm chasing ${cat.name}! Woof!`)
-};
-
-Noodles.chase(Markov);
-
-Noodles.chase.call(Markov, Noodles);
-Noodles.chase.apply(Markov, [Noodles]);
