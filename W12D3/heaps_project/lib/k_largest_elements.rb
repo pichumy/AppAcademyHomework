@@ -10,9 +10,7 @@ def k_largest_elements(array, k)
   i = array.length - 1
   while i > 0
     array[0], array[i] = array[i], array[0]
-    array[0...i].each_with_index do |_, idx|
-      array[0...i] = BinaryMinHeap.heapify_down(array[0...i], 0, array[0...i].length, &prc)
-    end
+    array[0...i] = BinaryMinHeap.heapify_down(array[0...i], 0, array[0...i].length, &prc)
     i -= 1
   end
   # return up to K values
