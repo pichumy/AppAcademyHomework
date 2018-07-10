@@ -9,6 +9,17 @@
 
 require_relative 'graph'
 
+def add_missing_packages(max_id, vertexes, values)
+  idx = 1
+  while idx < max_id
+    unless values.include?(idx)
+      vertex = Vertex.new(idx)
+      vertexes.push(vertex)
+    end
+    idx += 1
+  end
+end
+
 def install_order(arr)
   # keeps track of vertexes
   vertexes = []
@@ -36,14 +47,7 @@ def install_order(arr)
     Edge.new(dependency, vertex)
   end
   # including package numbers that have no dependencies, are not a dependency for others
-  idx = 1
-  while idx < max_id
-    unless values.include?(idx)
-      vertex = Vertex.new(idx)
-      vertexes.push(vertex)
-    end
-    idx += 1
-  end
+  add_missing_packages(max_id, vertexes, values)
   queue = []
   # populate queue with packages with no dependencies
   vertexes.each do |vert|
